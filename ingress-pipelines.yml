@@ -44,7 +44,8 @@ stages:
         command: 'install'
         chartType: 'Name'
         chartName: 'ingress-nginx/ingress-nginx'
-        arguments: 'controller.replicaCount=2,controller.nodeSelector."beta\.kubernetes\.io/os"=linux,defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux,controller.admissionWebhooks.patch.nodeSelector."beta\.kubernetes\.io/os"=linux'
+        releaseName: 'nginx-ingress'
+        overrideValues: 'controller.replicaCount=2,controller.nodeSelector."beta\.kubernetes\.io/os"=linux,defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux,controller.admissionWebhooks.patch.nodeSelector."beta\.kubernetes\.io/os"=linux'
 
     - task: KubernetesManifest@0
       inputs:
