@@ -41,10 +41,8 @@ stages:
         azureResourceGroup: 'kubernetes_prod'
         kubernetesCluster: 'k8prod_prod'
         namespace: 'default'
-        command: 'upgrade'
-        chartType: 'Name'
-        chartName: 'ingress-nginx/ingress-nginx'
-        releaseName: 'nginx-ingress'
+        command: 'repo'
+        arguments: 'add ingress-nginx https://kubernetes.github.io/ingress-nginx'
     - task: HelmDeploy@0
       inputs:
         connectionType: 'Azure Resource Manager'
