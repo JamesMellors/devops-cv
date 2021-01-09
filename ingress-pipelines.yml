@@ -41,6 +41,17 @@ stages:
         azureResourceGroup: 'kubernetes_prod'
         kubernetesCluster: 'k8prod_prod'
         namespace: 'default'
+        command: 'upgrade'
+        chartType: 'Name'
+        chartName: 'ingress-nginx/ingress-nginx'
+        releaseName: 'nginx-ingress'
+    - task: HelmDeploy@0
+      inputs:
+        connectionType: 'Azure Resource Manager'
+        azureSubscription: 'azure-resource-manager-service-connection'
+        azureResourceGroup: 'kubernetes_prod'
+        kubernetesCluster: 'k8prod_prod'
+        namespace: 'default'
         command: 'install'
         chartType: 'Name'
         chartName: 'ingress-nginx/ingress-nginx'
