@@ -22,6 +22,6 @@ spec:
       - backend:
           serviceName: cv-devops
           servicePort: 8001
-        path: /cv(.*)
+        path: /(.*)
 
 
