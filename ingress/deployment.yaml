@@ -15,7 +15,7 @@ spec:
     - www.james-mellors.com
     secretName: tls-secret
   rules:
-  - hosts: www.james-mellors.com
+  - host: www.james-mellors.com
   - http:
       paths:
       - backend:
