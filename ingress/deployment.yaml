@@ -13,12 +13,20 @@ spec:
   tls:
   - hosts:
     - www.james-mellors.com
+    - james-mellors.com
     secretName: tls-secret
   rules:
-  - host: www.james-mellors.com
+  - host: james-mellors.com
   - http:
       paths:
       - backend:
           serviceName: cv-devops
           servicePort: 8001
         path: /cv(.*)
+  - https:
+      paths:
+      - backend:
+          serviceName: cv-devops
+          servicePort: 8001
+        path: /cv(.*)
+
