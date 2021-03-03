@@ -23,5 +23,9 @@ spec:
           serviceName: cv-devops
           servicePort: 8001
         path: /(.*)
+      - backend:
+          serviceName: mello-api-v4
+          servicePort: 80
+        path: /api(.*)
 
 
