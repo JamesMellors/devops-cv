@@ -25,7 +25,7 @@ spec:
         path: /(.*)
       - backend:
           serviceName: mello-api-v4
-          servicePort: 8002
+          servicePort: 80
         path: /api(.*)
 
 
