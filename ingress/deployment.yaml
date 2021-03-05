@@ -5,7 +5,7 @@ metadata:
   namespace: default
   annotations:
     kubernetes.io/ingress.class: nginx
-    #nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/use-regex: "true"
     #nginx.ingress.kubernetes.io/rewrite-target: /$1
     cert-manager.io/cluster-issuer: letsencrypt
@@ -16,17 +16,17 @@ spec:
     - james-mellors.com
     secretName: tls-secret
   rules:
-  - host: james-mellors.com
+  - host: www.james-mellors.com
   - http:
       paths:
       - backend:
           serviceName: cv-devops
           servicePort: 8001
         path: /(.*)
-      - backend:
-          serviceName: mello-api-v4
-          servicePort: 80
-        path: /api(.*)
+      # - backend:
+      #     serviceName: mello-api-v4
+      #     servicePort: 80
+      #   path: /api(.*)
 # ---
 # apiVersion: networking.k8s.io/v1beta1
 # kind: Ingress
