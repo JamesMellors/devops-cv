@@ -28,7 +28,9 @@ stages:
     - task: CopyFiles@2
       inputs:
         SourceFolder: '$(System.DefaultWorkingDirectory)'
-        Contents: '**/*.yaml'
+        Contents: |
+          **/*.yaml
+          **/*.tpl
         TargetFolder: '$(Build.ArtifactStagingDirectory)'
     - task: PublishBuildArtifacts@1
       inputs:
@@ -47,7 +49,9 @@ stages:
       inputs:
         buildType: 'current'
         artifactName: 'manifests'
-        itemPattern: '**/*.yaml'
+        itemPattern: |
+          **/*.yaml
+          **/*.tpl
         targetPath: '$(System.ArtifactsDirectory)'
    
     - task: HelmDeploy@0
