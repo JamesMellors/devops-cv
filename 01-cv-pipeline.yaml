@@ -49,10 +49,22 @@ stages:
         artifactName: 'manifests'
         itemPattern: '**/*.yaml'
         targetPath: '$(System.ArtifactsDirectory)'
-    - task: KubernetesManifest@0
+   
+    - task: HelmDeploy@0
       inputs:
-        action: 'deploy'
-        kubernetesServiceConnection: 'azure-kubernetes-connection'
+        connectionType: 'Azure Resource Manager'
+        azureSubscription: 'azure-resource-manager-service-connection'
+        azureResourceGroup: 'kubernetes_prod'
+        kubernetesCluster: 'k8prod_prod'
         namespace: 'default'
-        manifests: '$(System.ArtifactsDirectory)/deploy/deployment.yaml'
-        containers: 'jamesmellors/cv-devops:$(tag)'
+        command: 'upgrade'
+        chartType: 'FilePath'
+        chartPath: '$(System.ArtifactsDirectory)/helm'
+        releaseName: 'devops-cv'
+    # - task: KubernetesManifest@0
+    #   inputs:
+    #     action: 'deploy'
+    #     kubernetesServiceConnection: 'azure-kubernetes-connection'
+    #     namespace: 'default'
+    #     manifests: '$(System.ArtifactsDirectory)/deploy/deployment.yaml'
+    #     containers: 'jamesmellors/cv-devops:$(tag)'
