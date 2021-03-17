@@ -4,6 +4,9 @@
 
 replicaCount: 1
 
+service:
+  name: cv-devops
+
 image:
   repository: jamesmellors/cv-devops
   pullPolicy: IfNotPresent
@@ -45,7 +48,6 @@ ingress:
   annotations: {
       kubernetes.io/ingress.class: nginx,
       nginx.ingress.kubernetes.io/ssl-redirect: "false",
-      nginx.ingress.kubernetes.io/from-to-www-redirect: "true",
       nginx.ingress.kubernetes.io/use-regex: "true",
       cert-manager.io/cluster-issuer: letsencrypt-prod
   }
