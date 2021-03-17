@@ -61,6 +61,7 @@ stages:
         chartType: 'FilePath'
         chartPath: '$(System.ArtifactsDirectory)/helm'
         releaseName: 'devops-cv'
+        overrideValues: 'image.tag=master'
     # - task: KubernetesManifest@0
     #   inputs:
     #     action: 'deploy'
